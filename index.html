@@ -7,7 +7,7 @@
     * { box-sizing: border-box; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #f9fafb;
+      background: linear-gradient(135deg, #fdf4ff 0%, #f0f9ff 100%);
       color: #111827;
       margin: 0;
       padding: 40px 20px;
@@ -18,13 +18,17 @@
     }
     .wrapper {
       text-align: center;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
     }
     h1 {
       font-size: 2.5rem;
       margin-bottom: 8px;
       letter-spacing: -0.02em;
+      background: linear-gradient(90deg, #7c3aed, #db2777);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     .subtitle {
       color: #6b7280;
@@ -32,7 +36,7 @@
       margin-bottom: 24px;
     }
     .btn {
-      background: #111827;
+      background: linear-gradient(90deg, #7c3aed, #db2777);
       color: white;
       border: none;
       padding: 14px 28px;
@@ -40,22 +44,85 @@
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+      box-shadow: 0 12px 24px rgba(124, 58, 237, 0.4);
     }
     #surprise {
       display: none;
       margin-top: 32px;
+      text-align: left;
+    }
+    .intro {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #374151;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .compliments-title {
+      text-align: center;
+      font-size: 1.5rem;
+      background: linear-gradient(90deg, #f59e0b, #dc2626);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 0 0 20px;
+      font-weight: 700;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 4px;
+    }
+    .card:nth-child(1)::before { background: linear-gradient(90deg, #7c3aed, #a855f7); }
+    .card:nth-child(2)::before { background: linear-gradient(90deg, #ec4899, #f43f5e); }
+    .card:nth-child(3)::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+    .card:nth-child(4)::before { background: linear-gradient(90deg, #10b981, #34d399); }
+    .card p {
+      margin: 0;
+      font-size: 1rem;
+      color: #374151;
+      line-height: 1.6;
+      font-style: italic;
+    }
+    .card::after {
+      content: '✨';
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 1.2rem;
+      opacity: 0.4;
     }
     .footer {
       text-align: center;
       color: #9ca3af;
       font-size: 0.85rem;
-      margin-top: 24px;
+      margin-top: 32px;
+    }
+    @media (max-width: 640px) {
+      h1 { font-size: 2rem; }
+      .grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -66,7 +133,25 @@
     <button class="btn" onclick="document.getElementById('surprise').style.display='block'">✨ Открыть сюрприз</button>
 
     <div id="surprise">
-      <p>Спасибо, что заглянули! Пусть ваш день будет таким же ярким, как этот сюрприз. 🌟</p>
+      <p class="intro">
+        Дарите себе радость, делитесь улыбками и верьте в чудеса! Мир прекрасен благодаря таким людям, как вы. 🌺
+      </p>
+
+      <div class="compliments-title">💌 Тёплые слова</div>
+      <div class="grid">
+        <div class="card">
+          <p>Ваша энергия и доброта освещают любое пространство. Спасибо, что вы есть!</p>
+        </div>
+        <div class="card">
+          <p>Вы — источник вдохновения для всех вокруг. Продолжайте творить чудеса!</p>
+        </div>
+        <div class="card">
+          <p>Ваша улыбка — лучший подарок. Пусть она никогда не гаснет!</p>
+        </div>
+        <div class="card">
+          <p>Вы невероятно умны и красивы. Гордимся вами!</p>
+        </div>
+      </div>
     </div>
 
     <div class="footer">Сделано с ❤️ • NiiyazG • 2026</div>
